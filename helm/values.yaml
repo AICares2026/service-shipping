@@ -1,0 +1,26 @@
+service:
+  name: shipping
+image:
+  repository: 952893849914.dkr.ecr.us-east-1.amazonaws.com/aicares-application/shipping
+containerPort: 50050
+resources:
+  limits:
+    memory: "20Mi"
+  requests:
+    memory: "10Mi"
+    cpu: "50m"
+env:
+  - name: SHIPPING_PORT
+    value: "50050"
+  - name: QUOTE_ADDR
+    value: "http://quote:8090"
+  - name: FLAGD_HOST
+    value: "flagd"
+  - name: FLAGD_PORT
+    value: "8013"
+  - name: OTEL_SERVICE_NAME
+    value: "shipping"
+  - name: OTEL_EXPORTER_OTLP_ENDPOINT
+    value: "http://otel-collector:4317"
+nodeSelector:
+  eks.amazonaws.com/nodegroup: graviton-workers
