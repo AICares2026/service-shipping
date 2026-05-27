@@ -1,5 +1,5 @@
 service:
-  name: shipping
+  name: service-shipping
 image:
   repository: 952893849914.dkr.ecr.us-east-1.amazonaws.com/aicares-application/shipping
 containerPort: 50050
